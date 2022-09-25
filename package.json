@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/mohitbish/week9#readme",
   "dependencies": {
+    "body-parser": "^1.20.0",
+    "bootstrap": "^5.2.1",
+    "cors": "^2.8.5",
     "mongodb": "^4.10.0"
   }
 }
