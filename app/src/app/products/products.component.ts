@@ -31,5 +31,15 @@ export class ProductsComponent implements OnInit {
       })
   }
   
+  removeproduct(x:string){
+    console.log(x);
+    this.httpClient.post(BACKEND_URL + '/productremove', x)
+      .subscribe((data:any)=>{
+        this.prods = data;
+      })
+  }
+  updateproduct(){
+    this.router.navigateByUrl("/updateproduct");
+  }
 
 }
