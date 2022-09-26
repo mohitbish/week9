@@ -11,14 +11,21 @@ const dbName = 'mydb';
 // Create a new MongoClient
 const client = new MongoClient(url);
 
-module.exports = function(product) {
+module.exports = function(req,res) {
+    var n = req.body.Name;
+    var p = req.body.Price;
+    var u = req.body.units;
+    var d = req.body.Description;
+
+    const product = {Name: n, Price: p, Description: d, units: u}
     // Get the documents collection
     const db = client.db(dbName);
     const collection = db.collection('products');
     // Insert some documents
-    collection.insertOne(products, function(err, res) {
+    collection.insertOne(product, function(err, res) {
         if (err) throw err;
         console.log("Product Added");
+        
     });
     
 }
