@@ -28,6 +28,7 @@ export class AddproductComponent implements OnInit {
     let prod = {Name: this.Name, Description: this.Description, Price: this.Price, units: this.units}
     this.httpClient.post(BACKEND_URL + '/productadd', prod, httpOptions)
       .subscribe((data:any)=>{
+        console.log(data);
         alert("added");
         this.router.navigateByUrl("/products");
       })

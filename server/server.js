@@ -39,6 +39,7 @@ httpsServer.listen(PORT2, () => {
 });
 
 app.get('/productfind', require('./routes/read'));
+app.post('/productfind1', require('./routes/read1'));
 app.post('/productadd', require('./routes/add'));
 app.post('/productremove', require('./routes/remove'));
 app.post('/productupdate', require('./routes/update'));

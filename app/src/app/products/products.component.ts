@@ -31,14 +31,14 @@ export class ProductsComponent implements OnInit {
       })
   }
   
-  removeproduct(x:string){
-    console.log(x);
-    this.httpClient.post(BACKEND_URL + '/productremove', x)
+  removeproduct(prod:ProdModel){
+    this.httpClient.post(BACKEND_URL + '/productremove', prod)
       .subscribe((data:any)=>{
         this.prods = data;
       })
   }
-  updateproduct(){
+  updateproduct(Prod:ProdModel){
+    sessionStorage.setItem('prod.Name', Prod.Name)
     this.router.navigateByUrl("/updateproduct");
   }
 

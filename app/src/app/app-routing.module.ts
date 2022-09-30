@@ -7,7 +7,7 @@ const routes: Routes = [
   {path:'products', component: ProductsComponent},
   {path:'addproduct', component: AddproductComponent},
   {path:'updateproduct', component: UpdateproductComponent}
-
+  
 ];
 
 @NgModule({
