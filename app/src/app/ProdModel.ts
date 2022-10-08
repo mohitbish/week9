@@ -1,10 +1,10 @@
+import { Double } from "mongodb";
 
 
 export interface ProdModel{
-    _id : string;
     Name: string;
-    Price: Float32Array;
-    Description: Text;
+    Price: Double;
+    Description: String;
     units: number;
 
 }

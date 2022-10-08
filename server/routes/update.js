@@ -11,15 +11,16 @@ const dbName = 'mydb';
 // Create a new MongoClient
 const client = new MongoClient(url);
 
-module.exports =  function(a,b) {
+module.exports =  function(req, res) {
     // Get the documents collection
     const db = client.db(dbName);
     const collection = db.collection('products');
+    console.log("bee")
+    console.log(req.body)
     // Update document where a is 2, set b equal to 1
-    collection.updateOne(a
-      , { $set: b }, function(err, res) {
-        if (err) throw err;
-        console.log("Product updated");
+    collection.updateOne({ Name : req.body.old.Name }
+      , { $set: req.body.new}, function() {
       
-    });  
+      console.log("Updated the document with the field a equal to 2");
+    });   
 }

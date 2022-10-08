@@ -44,6 +44,7 @@ export class ProductsComponent implements OnInit {
       .subscribe((data:any)=>{
         this.uprods = data[0];
         console.log(this.uprods)
+        localStorage.removeItem('prod')
         localStorage.setItem('prod', JSON.stringify(this.uprods));
         this.router.navigateByUrl("/updateproduct");
       })

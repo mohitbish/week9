@@ -1,1 +1,15 @@
-<p>updateproduct works!</p>
+<h1>Update</h1>
+<br>
+<label for="Name">Name</label>
+<input type="text"  name="Name" [(ngModel)]="Name" value= {{oprods.Name}} >
+<br>
+<label for="Price">Price</label>
+<input type="number"  name="Price" [(ngModel)]="Price"  value= {{oprods.Price}}>
+<br>
+<label for="units">units</label>
+<input type="number"  name="units" [(ngModel)]="units"  value= {{oprods.units}}>
+<br>
+<label for="Description">Description</label>
+<input type="text"  name="Description" [(ngModel)]="Description" value= {{oprods.Description}}>
+<br>
+<button class="update" (click) = "updateproduct()">update</button>
