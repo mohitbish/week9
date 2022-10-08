@@ -28,7 +28,7 @@ export class ProductsComponent implements OnInit {
     this.httpClient.get<ProdModel[]>(BACKEND_URL + '/productfind')
       .subscribe((data:any)=>{
         this.prods = data;
-        console.log(data);
+        console.log(typeof(data));
       })
   }
   
