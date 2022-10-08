@@ -17,23 +17,18 @@ const BACKEND_URL = 'http://localhost:3000';
 })
 export class UpdateproductComponent implements OnInit {
 
-  Name:string|null = "";
   prods: ProdModel[] = [];
+  
   constructor(private router:Router,  private httpClient: HttpClient,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log(sessionStorage.getItem('prod.Name'))
-    this.Name = sessionStorage.getItem('prod.Name');
-    this.getProduct()
+    
+    this.prods = JSON.parse(localStorage.getItem('prod')!);
+    console.log(JSON.parse(localStorage.getItem('prod')!))
+    //this.getProduct()
 
   }
   
-  getProduct(){
-    let x = this.Name
-    this.httpClient.post(BACKEND_URL + '/productfind1', x)
-      .subscribe((data:any)=>{
-        this.prods = data;
-      })
-  }
+  
 
 }
