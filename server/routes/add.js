@@ -22,8 +22,9 @@ module.exports = function(req,res) {
     const db = client.db(dbName);
     const collection = db.collection('products');
     // Insert some documents
-    collection.insertOne(product, function(err, res) {
+    collection.insertOne(product, function(err, result) {
         if (err) throw err;
+        res.send(product);
         console.log("Product Added");
         
     });

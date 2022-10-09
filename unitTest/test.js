@@ -30,6 +30,38 @@ describe('Server test', function() {
         });
     });
 
+    describe('/productadd', () => {
+        it('it should indert a doc', (done) => {
+            chai.request(app).post('/productadd').type('form').send({ 'Name': 'Kiwi', 'Price': 3 , 'units': 4, 'Description' : "nlne"})
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.have.property('Name');
+                    res.body.should.have.property('Price');
+                    res.body.should.have.property('units');
+                    res.body.should.have.property('Description');
+                    done();
+                });
+        });
+    });
 
+    describe('/productremove', () => {
+        it('it should remove a doc', (done) => {
+            chai.request(app).post('/productremove').type('form').send({ 'Name': 'Kiwi', 'Price': 3 , 'units': 4, 'Description' : "nlne"})
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    done();
+                });
+        });
+    });
+
+    describe('/productupdate', () => {
+        it('it should update a doc', (done) => {
+            chai.request(app).post('/productremove').type('form').send([{ 'Name': 'Kiwi', 'Price': 3 , 'units': 4, 'Description' : "nlne"},{ 'Name': 'Kiwi2', 'Price': 3.5 , 'units': 40, 'Description' : "new"}])
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    done();
+                });
+        });
+    });
 
 });

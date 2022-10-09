@@ -20,7 +20,7 @@ module.exports =  function(req, res) {
     // Update document where a is 2, set b equal to 1
     collection.updateOne({ Name : req.body.old.Name }
       , { $set: req.body.new}, function() {
-      
-      console.log("Updated the document with the field a equal to 2");
+      res.send(req.body.new)
+      console.log(req.body.new);
     });   
 }
